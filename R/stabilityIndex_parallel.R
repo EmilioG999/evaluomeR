@@ -24,7 +24,7 @@ stability_parallel <- function(data, k=5, bs=100, cbi="kmeans",
 # Versión paralela de la función stabilityRange
 stabilityRange_parallel <- function(data, k.range=c(2,15), bs=100, cbi="kmeans",
                                     getImages=FALSE, all_metrics=FALSE, seed=NULL,
-                                    gold_standard=NULL,...) {
+                                    gold_standard=NULL, numCores=NULL,...) {
   k.range.length = length(k.range)
   if (k.range.length != 2) {
     stop("k.range length must be 2")
@@ -86,7 +86,7 @@ stabilitySet_parallel <- function(data, k.set=c(2,3), bs=100, cbi="kmeans",
 
 # Versión paralela de la función runStabilityIndex
 # Función paralelizada que divide el número de métricas entre un número de clusters (añadimos numCores)
-runStabilityIndex_parallel <- function(data, k.min=NULL, k.max=NULL, bs,
+runStabilityIndex_parallel2 <- function(data, k.min=NULL, k.max=NULL, bs,
                                        cbi, all_metrics, seed, k.set=NULL,
                                        gold_standard=NULL, numCores=NULL,...) {
   
@@ -141,7 +141,7 @@ runStabilityIndex_parallel <- function(data, k.min=NULL, k.max=NULL, bs,
   }
   
   # Detectamos el número de cores, también se puede asignar manualmente aquí si se prefiere
-  numCores <- detectCores() 
+  #numCores <- detectCores() 
   message("Número de cores que participan en la paralelización: ", numCores)
   cl <- makeCluster(numCores)
   on.exit(stopCluster(cl), add = TRUE)

@@ -94,7 +94,7 @@ qualitySet_parallel <- function(data, k.set=c(2,4), cbi="kmeans", all_metrics=FA
 
 # Versión paralela de la función runQualityIndicesSilhouette
 # Función paralelizada que divide el número de métricas entre un número de clusters (añadimos numCores)
-runQualityIndicesSilhouette_parallel <- function(data, k.min=NULL, k.max=NULL, bs,
+runQualityIndicesSilhouette_parallel2 <- function(data, k.min=NULL, k.max=NULL, bs,
                                                  cbi, all_metrics, seed=NULL, k.set=NULL, numCores=NULL,...) {
   if (is.null(seed)) {
     seed = pkg.env$seed
