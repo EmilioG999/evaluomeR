@@ -33,6 +33,7 @@ notebooks/local/.ipynb_checkpoints/
 .gitmodules
 .hgtags
 .project
+.RDataTmp
 .seed
 .settings
 .tm_properties
